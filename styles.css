@@ -15,12 +15,6 @@ p {
   letter-spacing: 3px;
 }
 
-li img {
-  border-radius: 10px;
-  margin: 0.3rem;
-  max-width: 90%;
-  height: auto;
-}
 
 li strong {
   color: #e76f51;

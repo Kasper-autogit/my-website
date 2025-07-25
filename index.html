@@ -92,16 +92,22 @@
     <hr />
     <h2>🎯 My Hobbies</h2>
 
-    <div class="duel-container" id="ascii-art" style="white-space: nowrap; flex-direction: column; align-items: center;">
-      <div class="duelers-row" style="display: flex; gap: 2rem; justify-content: center; align-items: flex-end;">
-        <span class="duel-guy" id="dueler1">(>-_*)つ-}==&gt;</span>
-        <span id="spin-symbols">✧✦💥✦✧</span>
-        <span class="duel-guy" id="dueler2">&lt;=={-⊂(-_-&lt;)</span>
-      </div>
-      <div style="margin-top: 10px; font-weight: bold; font-size: 1.1em; width: 100%; text-align: center;">
-        ⚔️IT’S TIME TO DUEL!!⚔️
-      </div>
-    </div>
+<div class="duel-container" id="ascii-art" style="white-space: nowrap; flex-direction: column; align-items: center;">
+  <div class="duelers-row" style="display: flex; gap: 2rem; justify-content: center; align-items: flex-end;">
+    <!-- Duelist 1: Normal 🤺 -->
+    <span class="duel-guy" id="dueler1" style="font-size: 2.5rem;">🤺</span>
+    
+    <!-- Action / Impact Symbols -->
+    <span id="spin-symbols" style="font-size: 1.5rem;">✧✦💥✦✧</span>
+    
+    <!-- Duelist 2: Mirrored 🤺 -->
+    <span class="duel-guy" id="dueler2" style="font-size: 2.5rem; display: inline-block; transform: scaleX(-1);">🤺</span>
+  </div>
+
+  <div style="margin-top: 10px; font-weight: bold; font-size: 1.1em; width: 100%; text-align: center;">
+    ⚔️ IT’S TIME TO DUEL!! ⚔️
+  </div>
+</div>
 
     <div id="coin-flip-game" style="margin-top: 2rem; text-align: center;">
       <h3>Place Your Bet!</h3>
