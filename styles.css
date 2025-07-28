@@ -1,11 +1,9 @@
-/* General text styling */
 p {
   line-height: 2;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: rgb(245, 236, 3);
 }
-
 #main-header {
   color: #4c04e9;
   font-size: 2.5rem;
@@ -191,4 +189,80 @@ body {
   background: linear-gradient(135deg, #f0f8ff, #add8e6);
   padding: 1rem;
   border-radius: 10px;
+}
+
+.team-card img {
+  width: 200px; /* or try 150px */
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+
+.pokemon-card {
+  width: 30%;
+  padding: 20px;
+  margin: 10px;
+  border: 3px solid transparent;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px gold;
+  animation: sparkle 1s infinite alternate;
+}
+
+.pokemon-card.selected {
+  border: 3px solid gold;
+  background-color: #fff4c2;
+}
+
+@keyframes sparkle {
+  0% { box-shadow: 0 0 10px gold; }
+  100% { box-shadow: 0 0 20px orange; }
+}
+
+/* Sparkle container */
+.pokemon-card.selected {
+  position: relative;
+  border: 3px solid gold;
+  background-color: #fff4c2;
+  overflow: visible;
+}
+
+/* Sparkle dots */
+.pokemon-card.selected::before,
+.pokemon-card.selected::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, gold 60%, transparent 60%);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkleMove 2s linear infinite;
+}
+
+/* Position and animate the sparkles */
+.pokemon-card.selected::before {
+  top: 10px;
+  left: 10px;
+  animation-delay: 0s;
+}
+
+.pokemon-card.selected::after {
+  bottom: 10px;
+  right: 10px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkleMove {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  50%  { transform: translate(15px, -15px) scale(1.5); opacity: 0.5; }
+  100% { transform: translate(0, 0) scale(1); opacity: 1; }
 }
