@@ -155,7 +155,7 @@ body {
   font-size: 1.2rem;
   color: #264653;
 }
-
+/* Styles for Pokemon cards on the Pokémon page */
 .pokemon-card {
   width: 30%;
   padding: 20px;
@@ -265,4 +265,25 @@ body {
   0%   { transform: translate(0, 0) scale(1); opacity: 1; }
   50%  { transform: translate(15px, -15px) scale(1.5); opacity: 0.5; }
   100% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  .pokemon-card {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  nav a {
+    font-size: 1rem;
+  }
 }
