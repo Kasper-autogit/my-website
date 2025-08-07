@@ -310,3 +310,17 @@ footer p {
     text-align: center;
   }
 }
+
+
+.family-member {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-bottom: 2px solid #4c04e9;
+  background-color: #ffffff0f;
+  border-radius: 8px;
+}
+
+.family-member img {
+  margin-right: 10px;
+  border-radius: 8px;
+}
