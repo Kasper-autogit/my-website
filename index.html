@@ -40,13 +40,17 @@
   </style>
 </head>
 <body>
-  <!--Nav bars for the mutli sites-->>
-  <nav>
-  <a href="index.html">Home</a> | 
-  <a href="mod5.html">Pokemon Page</a> | 
-  <a href="sports.html">Sports</a> | 
-  <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>|
-  <a href="#footer">Jump to footer</a>|
+
+	<a id="top"></a>
+
+
+ <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
+<nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="mod5.html">Pokemon Page</a>
+  <a href="sports.html">Sports</a>
+  <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
+  <a href="#footer">Jump to footer</a>
 </nav>
 
   <header>
@@ -167,11 +171,6 @@
     </ul>
   </main>
   
-
-  <footer>
-    <footer id="footer"></footer>
-    <p>&copy; 2025 Ryan Kasper. All rights reserved.</p>
-  </footer>
 
 <script>
   const bgColorPicker = document.getElementById('bgColorPicker');
@@ -294,6 +293,12 @@
   sortLeaderboard();
   displayLeaderboard();
 </script>
+
+<!-- Flex Container #2: Footer with Back to Top link -->
+<footer id="footer" class="footer-bar">
+  <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
+  <a href="#top">Back to Top ↑</a>
+</footer>
 
 </body>
 </html>

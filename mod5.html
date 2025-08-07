@@ -87,23 +87,30 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a> | 
-    <a href="mod5.html">Pokemon Page</a> | 
-    <a href="sports.html">Sports</a> | 
-    <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
-  </nav>
+	<a id="top"></a>
+
+ <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
+<nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="mod5.html">Pokemon Page</a>
+  <a href="sports.html">Sports</a>
+  <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
+  <a href="#footer">Jump to footer</a>
+</nav>
+
 
   <header>
     <h1>Our Top 3 GOATS (Greatest of All Time)</h1>
-    <nav><a href="index.html">Back to Home</a></nav>
+   
   </header>
 
   <main>
     <h1>Choose your Pokémon!</h1>
     <p id="chosen-message"></p>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+ 
+<!-- Grid Layout: Responsive Pokémon card grid replacing old Flexbox layout -->
+<div class="pokemon-grid">
       <div class="pokemon-card" data-name="Charizard" tabindex="0" role="button" aria-pressed="false" aria-label="Choose Charizard">
         <h2>Charizard</h2>
         <img src="Pics of Hobbies/Charizard.jpg" alt="Charizard" />
@@ -115,7 +122,7 @@
         <h2>Garchomp</h2>
         <img src="Pics of Hobbies/Garchomp.jpg" alt="Garchomp" />
         <p><b>Type:</b> Dragon/Ground</p>
-        <p><b>Why Ben Likes It:</b> It's Fast, Powerful, Land Shark!</p>
+        <p><b>Why Ben Likes It:</b> It's Fast, Powerful, and a Land Shark! Whats not to love?</p>
       </div>
 
       <div class="pokemon-card" data-name="Snorlax" tabindex="0" role="button" aria-pressed="false" aria-label="Choose Snorlax">
@@ -129,9 +136,7 @@
 
   <audio id="pokeball-sound" src="Sounds/pokeball.wav" preload="auto"></audio>
 
-  <footer>
-    <p>&copy; 2025 Ryan Kasper. All rights reserved.</p>
-  </footer>
+  
 
 <script>
   const pokeballSound = document.getElementById('pokeball-sound');
@@ -168,5 +173,12 @@
     });
   });
 </script>
+
+<!-- Flex Container #2: Footer with Back to Top link -->
+<footer id="footer" class="footer-bar">
+  <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
+  <a href="#top">Back to Top ↑</a>
+</footer>
+
 </body>
 </html>

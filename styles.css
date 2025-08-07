@@ -1,9 +1,18 @@
+/* ===================== GENERAL STYLES ===================== */
+body {
+  margin: 1rem 2rem;
+  background-color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fb04a0;
+}
+
 p {
   line-height: 2;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: rgb(245, 236, 3);
 }
+
 #main-header {
   color: #4c04e9;
   font-size: 2.5rem;
@@ -12,7 +21,6 @@ p {
   text-transform: uppercase;
   letter-spacing: 3px;
 }
-
 
 li strong {
   color: #e76f51;
@@ -34,15 +42,7 @@ footer p {
   color: #555555;
 }
 
-/* Body styling */
-body {
-  margin: 1rem 2rem;
-  background-color: rgb(0, 0, 0);
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fb04a0;
-}
-
-/* Styling for ASCII art container */
+/* ===================== ASCII DUEL MINIGAME ===================== */
 #ascii-art {
   font-family: monospace;
   font-size: 1.2rem;
@@ -50,11 +50,12 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   white-space: pre-wrap;
-  transition: background-color 0.3s, color 0.3s;
   background-color: #0b0800;
-  max-width: 400px;
   color: #eb0505;
+  max-width: 400px;
+  transition: background-color 0.3s, color 0.3s;
 }
+
 .duel-container {
   display: flex;
   flex-direction: column;
@@ -80,19 +81,11 @@ body {
 
 .duel-guy {
   display: inline-block;
-  animation-name: jumpFall;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-}
-
-#dueler1 {
-  animation-delay: 0s;
+  animation: jumpFall 5s ease-in-out infinite both;
 }
 
 #dueler2 {
-  animation-delay: 3s; /* starts after dueler1 finishes */
+  animation-delay: 3s;
 }
 
 #spin-symbols {
@@ -102,7 +95,7 @@ body {
   vertical-align: middle;
 }
 
- .duel-text {
+.duel-text {
   padding-top: 1em;
   line-height: 2;
   font-weight: bold;
@@ -111,29 +104,18 @@ body {
   text-align: center;
 }
 
-
 @keyframes jumpFall {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-30px);
-  }
-  50% {
-    transform: translateY(0);
-  }
+  0%, 100% { transform: translateY(0); }
+  25%     { transform: translateY(-30px); }
+  50%     { transform: translateY(0); }
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-
+/* ===================== COIN FLIP GAME ===================== */
 #coin-flip-game button {
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -155,50 +137,17 @@ body {
   font-size: 1.2rem;
   color: #264653;
 }
-/* Styles for Pokemon cards on the Pokémon page */
-.pokemon-card {
-  width: 30%;
-  padding: 20px;
-  margin: 10px;
-  border: 2px solid blueviolet;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
-.pokemon-card img {
-  width: 100%;
-  height: auto;
-  max-width: 250px;
-  border: 3px solid white;
-  border-radius: 10px;
-  object-fit: contain;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.columns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 1rem;
-  margin: 1rem;
-  background: linear-gradient(135deg, #f0f8ff, #add8e6);
+/* ===================== POKÉMON GRID LAYOUT ===================== */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   padding: 1rem;
-  border-radius: 10px;
+  justify-items: center;
 }
 
-.team-card img {
-  width: 200px; /* or try 150px */
-  height: auto;
-  display: block;
-  margin-top: 10px;
-}
-
-
+/* Pokémon Card */
 .pokemon-card {
   width: 30%;
   padding: 20px;
@@ -218,24 +167,24 @@ body {
 }
 
 .pokemon-card.selected {
-  border: 3px solid gold;
-  background-color: #fff4c2;
-}
-
-@keyframes sparkle {
-  0% { box-shadow: 0 0 10px gold; }
-  100% { box-shadow: 0 0 20px orange; }
-}
-
-/* Sparkle container */
-.pokemon-card.selected {
   position: relative;
   border: 3px solid gold;
   background-color: #fff4c2;
   overflow: visible;
 }
 
-/* Sparkle dots */
+.pokemon-card img {
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  border: 3px solid white;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Sparkles for selected cards */
 .pokemon-card.selected::before,
 .pokemon-card.selected::after {
   content: "";
@@ -248,7 +197,6 @@ body {
   animation: sparkleMove 2s linear infinite;
 }
 
-/* Position and animate the sparkles */
 .pokemon-card.selected::before {
   top: 10px;
   left: 10px;
@@ -261,29 +209,104 @@ body {
   animation-delay: 1s;
 }
 
+@keyframes sparkle {
+  0%   { box-shadow: 0 0 10px gold; }
+  100% { box-shadow: 0 0 20px orange; }
+}
+
 @keyframes sparkleMove {
   0%   { transform: translate(0, 0) scale(1); opacity: 1; }
   50%  { transform: translate(15px, -15px) scale(1.5); opacity: 0.5; }
   100% { transform: translate(0, 0) scale(1); opacity: 1; }
 }
 
-/* Medium screens */
+/* ===================== FLEXBOX - Misc Layouts ===================== */
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  margin: 1rem;
+  background: linear-gradient(135deg, #f0f8ff, #add8e6);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.team-card img {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* ===================== FLEX CONTAINER #1: NAVBAR ===================== */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #222;
+  padding: 12px 0;
+  font-weight: bold;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+/* ===================== FLEX CONTAINER #2: FOOTER ===================== */
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #222;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.footer-bar a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-bar a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* Medium Screens */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
   }
+
   .pokemon-card {
     width: 90%;
     margin: 10px auto;
   }
 }
 
-/* Small screens */
-@media (max-width: 480px) {
+/* Small Screens */
+@media (max-width: 550px) {
   body {
     font-size: 14px;
   }
+
   nav a {
     font-size: 1rem;
+    display: block;
+    margin: 5px 0;
+    text-align: center;
   }
 }

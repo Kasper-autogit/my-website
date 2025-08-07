@@ -10,12 +10,18 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <nav aria-label="Main navigation">
-    <a href="index.html">Home</a> | 
-    <a href="mod5.html">Pokémon Page</a> | 
-    <a href="sports.html" aria-current="page">Sports</a> | 
-    <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
-  </nav>
+
+	<a id="top"></a>
+
+ <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
+<nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="mod5.html">Pokemon Page</a>
+  <a href="sports.html">Sports</a>
+  <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
+  <a href="#footer">Jump to footer</a>
+</nav>
+
 
   <header>
     <h1 id="main-header">Ryan's Favorite Sports Teams</h1>
@@ -59,9 +65,11 @@
     
   </main>
 
-  <footer>
-    <footer id="footer"></footer>
-    <p>&copy; 2025 Ryan Kasper. All rights reserved.</p>
-  </footer>
+ <!-- Flex Container #2: Footer with Back to Top link -->
+<footer id="footer" class="footer-bar">
+  <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
+  <a href="#top">Back to Top ↑</a>
+</footer>
+
 </body>
 </html>
