@@ -5,88 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Family's Favorite Pokémon!</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Headings + small helpers -->
   <style>
-    .columns {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem;
-      background: linear-gradient(135deg, #f0f8ff, #add8e6);
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    .column {
-      flex: 1;
-      padding: 15px;
-      margin: 5px;
-      border: 2px solid #4c04e9;
-      border-radius: 8px;
-      background-color: #ffffffcc;
-    }
-    h2 { margin-bottom: 0.5rem; }
-    p  { margin-bottom: 1rem; }
-
-    /* --- Pokémon layout helpers (kept simple) --- */
+    .pokemon-heading     { text-align:center; color:#FFD700; margin:24px 0 6px; }
+    .pokemon-subheading  { text-align:center; color:#FFA500; margin:0 0 24px;
+	font-size: x-large; }
+   
     .pokemon-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      padding: 1rem;
-      justify-items: center;
-      align-items: start;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px; padding:1rem; justify-items:center; align-items:start;
     }
-
     .pokemon-card {
-      width: 220px;
-      padding: 10px;
-      margin: 10px;
-      border: 3px solid transparent;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      background: white;
-      cursor: pointer;
-      text-align: center;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      width:220px; padding:10px; margin:10px; border:3px solid transparent; border-radius:12px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.15); cursor:pointer; text-align:center;
+      transition:border-color .3s, box-shadow .3s, transform .2s;
+      color:#0f0f0f;
+      background: linear-gradient(to bottom, #e09703, #000000);
     }
     .pokemon-card:hover { transform: translateY(-2px); }
-
-    .pokemon-card.selected,
-    .pokemon-card.selected h2,
-    .pokemon-card.selected p,
-    .pokemon-card.selected b {
-      color: black !important;
-    }
-    .pokemon-card img {
-      width: 200px;
-      height: auto;
-      border-radius: 8px;
-      user-select: none;
-    }
-    .pokemon-card.selected {
-      border-color: gold;
-      box-shadow: 0 0 15px 5px gold;
-      animation: sparkle 1.5s ease-in-out infinite alternate;
-      position: relative;
-      background-color: #fff4c2;
-    }
-    @keyframes sparkle {
-      0%   { box-shadow: 0 0 10px 2px gold; }
-      100% { box-shadow: 0 0 20px 7px #ffd700; }
-    }
-
-    #chosen-message {
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: gold;  /* keeps the message gold */
-      margin-bottom: 1rem;
-      min-height: 1.5em;
-    }
+    .pokemon-card img { width:200px; height:auto; border-radius:8px; user-select:none; }
+    .pokemon-card.selected { border-color:gold; box-shadow:0 0 15px 5px gold; position:relative; }
+    #chosen-message { text-align:center; font-size:1.3rem; font-weight:bold; color:#FFD700; margin-bottom:1rem; min-height:1.5em; }
   </style>
 </head>
-<body>
-  <a id="top"></a>
 
-  <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
+<body>
+  <!-- Fullscreen animated background -->
+  <div class="page-bg"></div>
+
+  <!-- Top headings -->
+  <h2 class="pokemon-heading">Our Top 3 GOATS (Greatest of All Time)</h2>
+  <h3 class="pokemon-subheading">Choose your Pokémon!</h3>
+  <div id="chosen-message"></div>
+
+  <!-- NAV -->
   <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="mod5.html">Pokemon Page</a>
@@ -95,45 +48,45 @@
     <a href="#footer">Jump to footer</a>
   </nav>
 
-  <header>
-    <h1>Our Top 3 GOATS (Greatest of All Time)</h1>
-  </header>
-
   <main>
-    <h1>Choose your Pokémon!</h1>
-    <p id="chosen-message"></p>
-
-    <!-- Grid Layout: Responsive Pokémon card grid -->
+    <!-- Pokémon Cards -->
     <div class="pokemon-grid">
       <div class="pokemon-card" data-name="Charizard" tabindex="0" role="button" aria-pressed="false" aria-label="Choose Charizard">
         <h2>Charizard</h2>
         <img src="Pics of Hobbies/Charizard.jpg" alt="Charizard" />
         <p><b>Type:</b> Fire/Flying</p>
         <p><b>Why I Like It:</b> Fierce, Iconic, Childhood Fav.</p>
+        <img src="GIFS/charizard-pokemon-charizard.gif" alt="Charizard using Flamethrower" class="move-gif" />
       </div>
 
       <div class="pokemon-card" data-name="Garchomp" tabindex="0" role="button" aria-pressed="false" aria-label="Choose Garchomp">
         <h2>Garchomp</h2>
         <img src="Pics of Hobbies/Garchomp.jpg" alt="Garchomp" />
         <p><b>Type:</b> Dragon/Ground</p>
-        <p><b>Why Ben Likes It:</b> It's Fast, Powerful, and a Land Shark! What’s not to love?</p>
+        <p><b>Why Ben Likes It:</b> It's Fast, Powerful, and a Land Shark!</p>
+        <img src="GIFS/Garchomp-EQ.gif" alt="Garchomp using Earthquake" class="move-gif" />
       </div>
 
       <div class="pokemon-card" data-name="Snorlax" tabindex="0" role="button" aria-pressed="false" aria-label="Choose Snorlax">
         <h2>Snorlax</h2>
-        <img src="Pics of Hobbies/snorelax.jpg" alt="Snorlax" />
+        <img src="Pics of Hobbies/snorlax1.webp" alt="Snorlax" />
         <p><b>Type:</b> Normal</p>
         <p><b>Why Jalie Likes It:</b> Big, Sleepy, and Adorable!</p>
+        <img src="GIFS/snorlax-body-slam.gif" alt="Snorlax using Body Slam" class="move-gif" />
       </div>
     </div>
+
+    <!-- Sound -->
+    <audio id="pokeball-sound" preload="auto">
+      <source src="Sounds/pokeball.wav" type="audio/wav" />
+    </audio>
   </main>
 
-  <!-- Audio: include wav (and optional mp3 fallback) -->
-  <audio id="pokeball-sound" preload="auto">
-    <source src="Sounds/pokeball.wav" type="audio/wav" />
-    <!-- <source src="Sounds/pokeball.mp3" type="audio/mpeg" /> -->
-  </audio>
+ <footer id="footer" class="footer-bar">
+  <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
+</footer>
 
+  <!-- Card selection script -->
   <script>
     const pokeballSound = document.getElementById('pokeball-sound');
     const cards = document.querySelectorAll('.pokemon-card');
@@ -141,43 +94,17 @@
 
     cards.forEach(card => {
       card.addEventListener('click', async () => {
-        // Remove previous selections
-        cards.forEach(c => {
-          c.classList.remove('selected');
-          c.setAttribute('aria-pressed', 'false');
-        });
-
-        // Add selection to clicked card
+        cards.forEach(c => { c.classList.remove('selected'); c.setAttribute('aria-pressed','false'); });
         card.classList.add('selected');
-        card.setAttribute('aria-pressed', 'true');
-
-        // Update message
+        card.setAttribute('aria-pressed','true');
         const name = card.getAttribute('data-name');
         message.textContent = `You chose ${name}!`;
-
-        // Play sound (handle autoplay quirks quietly)
-        try {
-          pokeballSound.currentTime = 0;
-          await pokeballSound.play();
-        } catch (e) {
-          // ignore if the browser blocks it (shouldn't on click)
-        }
+        try { pokeballSound.currentTime = 0; await pokeballSound.play(); } catch(e) {}
       });
-
-      // Keyboard support (Enter/Space)
       card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.click();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
       });
     });
   </script>
-
-  <!-- Flex Container #2: Footer with Back to Top link -->
-  <footer id="footer" class="footer-bar">
-    <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
-    <a href="#top">Back to Top ↑</a>
-  </footer>
 </body>
 </html>

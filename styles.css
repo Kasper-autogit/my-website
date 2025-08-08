@@ -40,7 +40,30 @@ a:hover {
 footer p {
   font-size: 0.8rem;
   color: #555555;
+
+
 }
+
+.page-bg {
+  position: fixed; /* stays in place when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("GIFS/bike-gif.gif") center center / cover no-repeat;
+  z-index: -1; /* keeps it behind everything else */
+}
+
+.page-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); /* 40% dark overlay */
+}
+
 
 /* ===================== ASCII DUEL MINIGAME ===================== */
 #ascii-art {
@@ -141,7 +164,7 @@ footer p {
 /* ===================== POKÉMON GRID LAYOUT ===================== */
 .pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
   padding: 1rem;
   justify-items: center;
@@ -149,15 +172,17 @@ footer p {
 
 /* Pokémon Card */
 .pokemon-card {
-  width: 30%;
-  padding: 20px;
-  margin: 10px;
+  padding: 25px;
   border: 3px solid transparent;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 0 15px #333;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 550px;  /* ensures even height */
 }
 
 .pokemon-card:hover {
@@ -168,8 +193,8 @@ footer p {
 
 .pokemon-card.selected {
   position: relative;
-  border: 3px solid gold;
-  background-color: #fff4c2;
+  border: 3px solid rgb(255, 196, 0);
+  background-color: gold;
   overflow: visible;
 }
 
@@ -182,7 +207,17 @@ footer p {
   object-fit: contain;
   margin-bottom: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 0 auto 10px;
 }
+
+.pokemon-heading {
+  text-align: center;
+  color: #FFD700; /* Gold */
+  font-family: 'Arial Black', sans-serif;
+}
+
+
+
 
 /* Sparkles for selected cards */
 .pokemon-card.selected::before,
@@ -339,4 +374,13 @@ footer p {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.move-gif {
+  width: 90%;
+  max-width: 250px;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
