@@ -384,3 +384,90 @@ footer p {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
+
+
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000;
+  color: #FFD700;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1f1f1f;
+  padding: 10px 0;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 15px;
+  transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #FFD700;
+  color: #000;
+  border-radius: 4px;
+}
+
+#main-header {
+  text-align: center;
+  font-size: 2rem;
+  color: #8A2BE2;
+  margin: 20px 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.team-card {
+  background-color: #111;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.team-card h2 {
+  color: #FF1493;
+  margin-bottom: 10px;
+}
+
+.team-card img {
+  max-width: 150px;
+  display: block;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+
+.team-card p {
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.footer-bar {
+  background-color: #1f1f1f;
+  color: #ccc;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-bar a {
+  color: #00CED1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-bar a:hover {
+  text-decoration: underline;
+}
