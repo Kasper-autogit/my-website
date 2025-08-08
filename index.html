@@ -6,6 +6,39 @@
   <title>About Me: Ryan Kasper</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    .home-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .home-sections section {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .home-sections h2 {
+      font-size: 1.8rem;
+      color: #FF00CC;
+      border-bottom: 2px solid #FF00CC;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    @media (max-width: 800px) {
+      .home-sections {
+        grid-template-columns: 1fr;
+      }
+    }
+
     #high-score-container {
       margin-top: 1.5rem;
       border: 1px solid #ddd;
@@ -40,279 +73,193 @@
   </style>
 </head>
 <body>
-
-	<a id="top"></a>
-
-
- <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
-<nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="mod5.html">Pokemon Page</a>
-  <a href="sports.html">Sports</a>
-  <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
-  <a href="#footer">Jump to footer</a>
-</nav>
+  <a id="top"></a>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mod5.html">Pokemon Page</a>
+    <a href="sports.html">Sports</a>
+    <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
+    <a href="#footer">Jump to footer</a>
+  </nav>
 
   <header>
     <h1 id="main-header">Ryan Kasper's About Me Page! &hearts;</h1>
-  
-
-    <p id="site-notice" style="color: #d9534f; font-weight: bold; font-size: 1.1em; text-align: center;">
-      ⚠️ This is a family-friendly site — please keep language clean and respectful. ⚠️
-    </p>
+    <p id="site-notice">⚠️ This is a family-friendly site — please keep language clean and respectful. ⚠️</p>
   </header>
 
   <main>
+    <div class="home-sections">
 
-    <p id="intro-text">Hello, my name is <strong>Ryan Kasper</strong>. Thank you for visiting my webpage!</p>
+      <!-- LEFT COLUMN -->
+      <section>
+        <p id="intro-text">Hello, my name is <strong>Ryan Kasper</strong>. Thank you for visiting my webpage!</p>
+        <label for="bgColorPicker">Pick Background Color:</label>
+        <input type="color" id="bgColorPicker" value="#f5f5f5" />
+        <label for="textColorPicker">Pick Text Color:</label>
+        <input type="color" id="textColorPicker" value="#1e1e1e" />
+        <img src="Picture of Family/Pic of me.jpg" alt="Ryan Kasper" width="250" />
+      </section>
 
-    <label for="bgColorPicker">Pick Background Color: </label>
-    <input type="color" id="bgColorPicker" value="#f5f5f5" />
+      <section>
+        <h2>⚔️ Duel Minigame</h2>
+        <div class="duel-container" id="ascii-art" style="white-space: nowrap; flex-direction: column; align-items: center;">
+          <div class="duelers-row" style="display: flex; gap: 2rem; justify-content: center; align-items: flex-end;">
+            <span class="duel-guy" id="dueler1" style="font-size: 2.5rem;">🤺</span>
+            <span id="spin-symbols" style="font-size: 1.5rem;">✧✦💥✦✧</span>
+            <span class="duel-guy" id="dueler2" style="font-size: 2.5rem; display: inline-block; transform: scaleX(-1);">🥷</span>
+          </div>
+          <div style="margin-top: 10px; font-weight: bold; font-size: 1.1em; width: 100%; text-align: center;">
+            ⚔️ IT’S TIME TO DUEL!! ⚔️
+          </div>
+        </div>
+        <div id="coin-flip-game" style="margin-top: 2rem; text-align: center;">
+          <h3>Place Your Bet!</h3>
+          <button id="bet-left">Bet on Left Dueler</button>
+          <button id="bet-right">Bet on Right Dueler</button>
+          <p id="result" style="margin-top: 1rem; font-weight: bold;"></p>
+          <p id="win-streak" style="margin-top: 0.5rem; font-weight: bold; color: green;"></p>
 
-    <div style="margin: 1rem 0;">
-      <label for="textColorPicker">Pick Text Color: </label>
-      <input type="color" id="textColorPicker" value="#1e1e1e" />
-    </div>
+          <div id="high-score-container">
+            <h4>Your Top 3 Scores</h4>
+            <small>(Saved only on this device, not shared online)</small>
+            <ol id="leaderboard-list"></ol>
+            <p id="high-score-text" style="font-weight: bold; font-size: 1.2em; margin-top: 0.5rem;"></p>
+          </div>
 
-    <img src="Picture of Family/Pic of me.jpg" alt="Ryan Kasper" width="250" />
+          <div id="name-entry" style="margin-top: 1rem; display: none;">
+            <label for="player-name">You set a new high score! Enter your name:</label><br />
+            <input type="text" id="player-name" placeholder="Your name here" />
+            <button id="submit-name">Submit</button>
+          </div>
+        </div>
+      </section>
 
-    <h2>👨‍👩‍👧‍👦 Meet My Family</h2>
+	
 
-<section class="family-member">
-  <h3>Ryan Kasper (Me)</h3>
-  <img src="Picture of Family/Picture of Ryan + Jalie.jpg" alt="Ryan Kasper + Jalie" width="250" />
-  <p>I’m a loving husband and dad who finds joy in both family life and the great outdoors. Whether I’m hiking, fishing, or at the beach, I feel most alive outdoors. I also love gaming — it helps me relax, connect, and sharpen my mind. Balance is everything: adventure, calm, focus, and family.</p>
+      <!-- RIGHT COLUMN -->
+      <section>
+  <h2>👨‍👩‍👧‍👦 Meet My Family</h2>
+  <section class="family-member">
+    <h3>Ryan Kasper (Me)</h3>
+    <img src="Picture of Family/Picture of Ryan + Jalie.jpg" alt="Ryan Kasper + Jalie" width="250" />
+    <p>I’m a loving husband and dad who finds joy in both family life and the great outdoors. Whether I’m hiking, fishing, or at the beach, I feel most alive outdoors. I also love gaming — it helps me relax, connect, and sharpen my mind. Balance is everything: adventure, calm, focus, and family.</p>
+  </section>
+
+  <section class="family-member">
+    <h3>Jalie Kasper</h3>
+    <img src="Picture of Family/Picture of Jalie.jpg" alt="Jalie Kasper" width="200" />
+    <img src="Picture of Family/Picture of Jalie2.jpg" alt="Jalie Kasper #2" width="200" />
+    <p>Jalie is the heart of our home — a Christ-centered preschool teacher and incredible mom. Her faith guides her gentle, patient, and wise approach to both teaching and parenting. She’s our spiritual anchor, leading with love and grace every day.</p>
+  </section>
+
+  <section class="family-member">
+    <h3>Benjamin Kasper</h3>
+    <img src="Picture of Family/Picture of Ben.jpg" alt="Benjamin Kasper" width="200" />
+    <img src="Picture of Family/Pic of Ben2.jpg" alt="Benjamin Kasper #2" width="200" />
+    <p>Benjamin is my firstborn and an amazing big brother. At 11, he’s a thoughtful leader who loves basketball and gaming. I cherish our fishing trips — casting lines, having deep talks, and making memories together.</p>
+  </section>
+
+  <section class="family-member">
+    <h3>Spencer Kasper</h3>
+    <img src="Picture of Family/Picture of Spencer.jpg" alt="Spencer Kasper" width="200" />
+    <img src="Picture of Family/Pic of Spencer2.jpg" alt="Spencer Kasper #2 + Ryan" width="200" />
+    <p>Spencer is 5 and full of imagination. He turns everything into an epic adventure — whether it’s pretending to be a superhero or asking for thrilling bedtime stories. He’s a dreamer who brings joy to everyone.</p>
+  </section>
+
+  <section class="family-member">
+    <h3>Dylan Kasper</h3>
+    <img src="Picture of Family/Picture of Dylan.jpg" alt="Dylan Kasper" width="200" />
+    <img src="Picture of Family/Picture of Dylan2.jpg" alt="Dylan Kasper #2" width="200" />
+    <p>Dylan keeps things exciting! He loves hiding little treasures and turning every moment into a quest. With a big heart and playful energy, he makes our days fun and full of surprises.</p>
+  </section>
+
+  <section class="family-member">
+    <h3>Abigail Kasper</h3>
+    <img src="Picture of Family/Picture of Abby.jpg" alt="Abigail Kasper" width="200" />
+    <img src="Picture of Family/Pic of abby2.jpg" alt="Abigail Kasper #2" width="200" />
+    <p>Abigail is our only girl — fast, fearless, and full of life. Grandma swears she’s Olympic-bound! She spreads sunshine everywhere she goes, with a heart of gold and the strength to match it.</p>
+  </section>
 </section>
 
-<section class="family-member">
-  <h3>Jalie Kasper</h3>
-  <img src="Picture of Family/Picture of Jalie.jpg" alt="Jalie Kasper" width="200" />
-  <img src="Picture of Family/Picture of Jalie2.jpg" alt="Jalie Kasper #2" width="200" />
-  <p>Jalie is the heart of our home — a Christ-centered preschool teacher and incredible mom. Her faith guides her gentle, patient, and wise approach to both teaching and parenting. She’s our spiritual anchor, leading with love and grace every day.</p>
-</section>
+      <section>
+        <h2>🎮 My Hobbies</h2>
+        <ul>
+          <li><strong>🎮 Gaming</strong>: I love playing competitive games like <em>World of Warcraft</em> where I reached Gladiator rank!
+            <br />
+            <img src="Pics of Hobbies/Wow mount.jpg" alt="Gladiator Mount" width="200" />
+            <img src="Pics of Hobbies/gnome warlock.jpg" alt="Gladiator Warlock" width="200" />
+            <p>I also enjoy relaxing games like Pokémon and Final Fantasy.</p>
+            <img src="Pics of Hobbies/pokemon pic.jpg" alt="Pokémon" width="200" />
+            <img src="Pics of Hobbies/FF8.jpg" alt="Final Fantasy 8" width="200" />
+          </li>
+          <li><hr /><strong>🎣 Fishing</strong>: I fish at Mason and Limerick lakes with my family!
+            <br />
+            <img src="Pics of Hobbies/fishing pic 2.jpg" alt="Fishing Pic" width="200" />
+            <img src="Pics of Hobbies/fishing pic1.jpg" alt="Fishing Pic 2" width="200" />
+          </li>
+          <li><hr /><strong>💻 Coding</strong>: I'm learning Python, HTML, and more!
+            <br />
+            <img src="Pics of Hobbies/tech pic.jpg" alt="Tech Pic" width="200" />
+          </li>
+          <li><hr /><strong>📸 Family Adventures</strong>: Parks, arcades, and the beach!
+            <br />
+            <img src="Picture of Family/fam pic.jpg" alt="Family Adventure" width="200" />
+          </li>
+		  <li>
+  <hr />
+  <li style="margin-top: 30px;">
+  <h2 style="color: #FF00FF;">🎣 Ben’s Big Catch</h2>
+  <p style="color: #FFD700;">
+    This year, Ben reeled in a monster 4.01 lb, 21-inch largemouth bass at <strong>Mason Lake</strong>! 🐟 
+    It was a proud moment — the scale didn’t lie and neither did the cheers from the shoreline. 
+    Net assist by Dad (a.k.a. The Netman 🕸️😄).
+  </p>
 
-<section class="family-member">
-  <h3>Benjamin Kasper</h3>
-  <img src="Picture of Family/Picture of Ben.jpg" alt="Benjamin Kasper" width="200" />
-  <img src="Picture of Family/Pic of Ben2.jpg" alt="Benjamin Kasper #2" width="200" />
-  <p>Benjamin is my firstborn and an amazing big brother. At 11, he’s a thoughtful leader who loves basketball and gaming. I cherish our fishing trips — casting lines, having deep talks, and making memories together.</p>
-</section>
-
-<section class="family-member">
-  <h3>Spencer Kasper</h3>
-  <img src="Picture of Family/Picture of Spencer.jpg" alt="Spencer Kasper" width="200" />
-  <img src="Picture of Family/Pic of Spencer2.jpg" alt="Spencer Kasper #2 + Ryan" width="200" />
-  <p>Spencer is 5 and full of imagination. He turns everything into an epic adventure — whether it’s pretending to be a superhero or asking for thrilling bedtime stories. He’s a dreamer who brings joy to everyone.</p>
-</section>
-
-<section class="family-member">
-  <h3>Dylan Kasper</h3>
-  <img src="Picture of Family/Picture of Dylan.jpg" alt="Dylan Kasper" width="200" />
-  <img src="Picture of Family/Picture of Dylan2.jpg" alt="Dylan Kasper #2" width="200" />
-  <p>Dylan keeps things exciting! He loves hiding little treasures and turning every moment into a quest. With a big heart and playful energy, he makes our days fun and full of surprises.</p>
-</section>
-
-<section class="family-member">
-  <h3>Abigail Kasper</h3>
-  <img src="Picture of Family/Picture of Abby.jpg" alt="Abigail Kasper" width="200" />
-  <img src="Picture of Family/Pic of abby2.jpg" alt="Abigail Kasper #2" width="200" />
-  <p>Abigail is our only girl — fast, fearless, and full of life. Grandma swears she’s Olympic-bound! She spreads sunshine everywhere she goes, with a heart of gold and the strength to match it.</p>
-</section>
-
-    <hr />
-    <h2>🎯 My Hobbies</h2>
-
-<div class="duel-container" id="ascii-art" style="white-space: nowrap; flex-direction: column; align-items: center;">
-  <div class="duelers-row" style="display: flex; gap: 2rem; justify-content: center; align-items: flex-end;">
-    <!-- Duelist: 🤺 -->
-    <span class="duel-guy" id="dueler1" style="font-size: 2.5rem;">🤺</span>
-    
-    <!-- Action Symbols -->
-    <span id="spin-symbols" style="font-size: 1.5rem;">✧✦💥✦✧</span>
-    
-    <!-- Ninja: 🥷 mirrored -->
-    <span class="duel-guy" id="dueler2" style="font-size: 2.5rem; display: inline-block; transform: scaleX(-1);">🥷</span>
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+    <img src="Picture of Family/Ben and the Netman 4lb bass.jpg" 
+         alt="Ben and Ryan with 4lb bass" 
+         style="width: 300px; border-radius: 10px;" />
+         
+    <img src="Picture of Family/Bens pic 4 lbs bass.jpg" 
+         alt="Ben holding big largemouth" 
+         style="width: 300px; border-radius: 10px;" />
   </div>
 
-  <div style="margin-top: 10px; font-weight: bold; font-size: 1.1em; width: 100%; text-align: center;">
-    ⚔️ IT’S TIME TO DUEL!! ⚔️
+  <p style="color: #FFD700;">
+    And on our San Diego trip, Ben caught a spotted bay bass in the harbor — totally different vibe but same energy! 🌊⚓
+  </p>
+
+  <div style="text-align: center;">
+    <img src="Picture of Family/Pic of ben with Spotted bass in SD.jpg" 
+         alt="Ben with Spotted Bay Bass in San Diego" 
+         style="width: 400px; border-radius: 10px; margin-top: 10px;" />
   </div>
+  <div class="tenor-gif-embed" 
+     data-postid="15283723766048777045" 
+     data-share-method="host" 
+     data-aspect-ratio="1.34595" 
+     data-width="100%">
+  <a href="https://tenor.com/view/fishing-the-legend-of-zelda-ocarina-of-time-link-fish-gif-15283723766048777045">
+    Fishing The Legend Of Zelda GIF
+  </a> from 
+  <a href="https://tenor.com/search/fishing-gifs">Fishing GIFs</a>
 </div>
 
+</li>
 
-    <div id="coin-flip-game" style="margin-top: 2rem; text-align: center;">
-      <h3>Place Your Bet!</h3>
-      <button id="bet-left">Bet on Left Dueler</button>
-      <button id="bet-right">Bet on Right Dueler</button>
-      <p id="result" style="margin-top: 1rem; font-weight: bold;"></p>
-      <p id="win-streak" style="margin-top: 0.5rem; font-weight: bold; color: green;"></p>
 
-      <div id="high-score-container">
-        <h4>Your Top 3 Scores</h4>
-        <small>(Saved only on this device, not shared online)</small>
-        <ol id="leaderboard-list"></ol>
-        <p id="high-score-text" style="font-weight: bold; font-size: 1.2em; margin-top: 0.5rem;"></p>
-      </div>
+        </ul>
+      </section>
 
-      <div id="name-entry" style="margin-top: 1rem; display: none;">
-        <label for="player-name">You set a new high score! Enter your name:</label><br />
-        <input type="text" id="player-name" placeholder="Your name here" />
-        <button id="submit-name">Submit</button>
-      </div>
+ 
     </div>
-	<ul>
-      <li><strong>🎮 Gaming</strong>: I love playing competitive games like <em>World of Warcraft</em> where I reached Gladiator rank!
-        <br />
-        <img src="Pics of Hobbies/Wow mount.jpg" alt="Gladiator Mount" width="200" />
-        <img src="Pics of Hobbies/gnome warlock.jpg" alt="Gladiator Warlock" width="200" />
-        <p>I also enjoy relaxing games like Pokémon and Final Fantasy.</p>
-        <img src="Pics of Hobbies/pokemon pic.jpg" alt="Pokémon" width="200" />
-        <img src="Pics of Hobbies/FF8.jpg" alt="Final Fantasy 8" width="200" />
-      </li>
-      <li><hr /><strong>🎣 Fishing</strong>: I fish at Mason and Limerick lakes with my family!
-        <br />
-        <img src="Pics of Hobbies/fishing pic 2.jpg" alt="Fishing Pic" width="200" />
-        <img src="Pics of Hobbies/fishing pic1.jpg" alt="Fishing Pic 2" width="200" />
-      </li>
-      <li><hr /><strong>💻 Coding</strong>: I'm learning Python, HTML, and more!
-        <br />
-        <img src="Pics of Hobbies/tech pic.jpg" alt="Tech Pic" width="200" />
-      </li>
-      <li><hr /><strong>📸 Family Adventures</strong>: Parks, arcades, and the beach!
-        <br />
-        <img src="Picture of Family/fam pic.jpg" alt="Family Adventure" width="200" />
-      </li>
-    </ul>
+	<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
   </main>
-  
 
-<script>
-  const bgColorPicker = document.getElementById('bgColorPicker');
-  const textColorPicker = document.getElementById('textColorPicker');
-  const asciiArt = document.getElementById('ascii-art');
-  const mainHeader = document.getElementById('main-header');
-  const introText = document.getElementById('intro-text');
-
-  bgColorPicker.addEventListener('input', () => {
-    const bgColor = bgColorPicker.value;
-    document.body.style.backgroundColor = bgColor;
-    asciiArt.style.backgroundColor = bgColor;
-  });
-
-  textColorPicker.addEventListener('input', () => {
-    const textColor = textColorPicker.value;
-    document.body.style.color = textColor;
-    asciiArt.style.color = textColor;
-    mainHeader.style.color = textColor;
-    introText.style.color = textColor;
-
-    const allTextElements = document.querySelectorAll('main h2, main h3, main p, main li, main label, main a, main span, main strong');
-    allTextElements.forEach(el => el.style.color = textColor);
-  });
-
-  const betLeftBtn = document.getElementById('bet-left');
-  const betRightBtn = document.getElementById('bet-right');
-  const resultText = document.getElementById('result');
-  const winStreakText = document.getElementById('win-streak');
-  const dueler1 = document.getElementById('dueler1');
-  const dueler2 = document.getElementById('dueler2');
-  const highScoreText = document.getElementById('high-score-text');
-  const leaderboardList = document.getElementById('leaderboard-list');
-  const nameEntryDiv = document.getElementById('name-entry');
-  const playerNameInput = document.getElementById('player-name');
-  const submitNameBtn = document.getElementById('submit-name');
-
-  let winStreak = 0;
-  let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-
-  function sortLeaderboard() {
-    leaderboard.sort((a, b) => b.score - a.score);
-    if (leaderboard.length > 3) leaderboard = leaderboard.slice(0, 3);
-  }
-
-  function displayLeaderboard() {
-    leaderboardList.innerHTML = '';
-    if (leaderboard.length === 0) {
-      highScoreText.textContent = 'No high scores yet.';
-    } else {
-      leaderboard.forEach(entry => {
-        const li = document.createElement('li');
-        li.textContent = `${entry.name} — ${entry.score} wins`;
-        leaderboardList.appendChild(li);
-      });
-      highScoreText.textContent = `${leaderboard[0].name} — ${leaderboard[0].score} wins`;
-    }
-  }
-
-  function flipCoin() {
-    return Math.random() < 0.5 ? 'left' : 'right';
-  }
-
-  function placeBet(bet) {
-    const winner = flipCoin();
-    dueler1.style.backgroundColor = '';
-    dueler2.style.backgroundColor = '';
-
-    if (winner === 'left') dueler1.style.backgroundColor = '#90ee90';
-    else dueler2.style.backgroundColor = '#90ee90';
-
-    if (bet === winner) {
-      resultText.textContent = `🎉 You won! The ${winner} dueler wins!`;
-      resultText.style.color = 'green';
-      winStreak++;
-    } else {
-      resultText.textContent = `😞 You lost. The ${winner} dueler wins. Try again!`;
-      resultText.style.color = 'red';
-      winStreak = 0;
-    }
-
-    winStreakText.textContent = winStreak > 0 ? `🔥 Current Win Streak: ${winStreak}` : '';
-
-    const lowestHighScore = leaderboard.length < 3 ? 0 : leaderboard[leaderboard.length - 1].score;
-    if (winStreak > lowestHighScore) {
-      nameEntryDiv.style.display = 'block';
-    } else {
-      nameEntryDiv.style.display = 'none';
-    }
-  }
-
-  submitNameBtn.addEventListener('click', () => {
-    let playerName = playerNameInput.value.trim();
-    if (!playerName) playerName = 'Anonymous';
-
-    const existingIndex = leaderboard.findIndex(e => e.name.toLowerCase() === playerName.toLowerCase());
-    if (existingIndex >= 0) {
-      if (winStreak > leaderboard[existingIndex].score) {
-        leaderboard[existingIndex].score = winStreak;
-      } else {
-        alert('Your new score is not higher than your previous high score.');
-        nameEntryDiv.style.display = 'none';
-        playerNameInput.value = '';
-        return;
-      }
-    } else {
-      leaderboard.push({ name: playerName, score: winStreak });
-    }
-
-    sortLeaderboard();
-    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
-    displayLeaderboard();
-    nameEntryDiv.style.display = 'none';
-    playerNameInput.value = '';
-  });
-
-  betLeftBtn.addEventListener('click', () => placeBet('left'));
-  betRightBtn.addEventListener('click', () => placeBet('right'));
-
-  sortLeaderboard();
-  displayLeaderboard();
-</script>
-
-<!-- Flex Container #2: Footer with Back to Top link -->
-<footer id="footer" class="footer-bar">
-  <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
-  <a href="#top">Back to Top ↑</a>
-</footer>
-
+  <footer id="footer" class="footer-bar">
+    <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
+    <a href="#top">Back to Top ↑</a>
+  </footer>
 </body>
 </html>

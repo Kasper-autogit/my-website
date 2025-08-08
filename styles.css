@@ -324,3 +324,19 @@ footer p {
   margin-right: 10px;
   border-radius: 8px;
 }
+
+
+.home-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 equal columns */
+  gap: 20px; /* space between grid items */
+  padding: 20px;
+}
+
+
+.home-sections section {
+  background-color: #111111;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
