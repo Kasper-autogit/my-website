@@ -5,9 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Family's Favorite Pokémon!</title>
   <link rel="stylesheet" href="styles.css" />
+<!-- Font Awesome (via jsDelivr CDN) -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+
+<!-- Favicon -->
+<link rel="icon" href="GIFS/R.jpg" type="image/x-icon" />
 
   <!-- Headings + small helpers -->
   <style>
+
+/* Consistent card sizing */
+.pokemon-card { 
+  min-height: 560px;           /* keeps all three cards visually equal */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Main artwork (first static image in each card) — no cropping */
+.pokemon-card img:not(.move-gif) {
+  width: 100%;
+  max-width: 250px;
+  height: 180px;               /* fixed box */
+  object-fit: contain;         /* don't crop */
+  background: #111;            /* subtle backdrop if letterboxed */
+  border-radius: 8px;
+  margin: 0 auto 10px;
+}
+
+/* Move GIFs — also equal height, no cropping */
+.move-gif {
+  width: 100%;
+  max-width: 250px;
+  height: 160px;               /* fixed box */
+  object-fit: contain;         /* don't crop */
+  background: #111;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+
     .pokemon-heading     { text-align:center; color:#FFD700; margin:24px 0 6px; }
     .pokemon-subheading  { text-align:center; color:#FFA500; margin:0 0 24px;
 	font-size: x-large; }
@@ -41,12 +79,14 @@
 
   <!-- NAV -->
   <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="mod5.html">Pokemon Page</a>
-    <a href="sports.html">Sports</a>
-    <a href="https://www.espn.com" target="_blank" rel="noopener noreferrer">ESPN</a>
-    <a href="#footer">Jump to footer</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="mod5.html"><i class="fas fa-gamepad"></i> Pokemon Page</a>
+    <a href="sports.html"><i class="fas fa-football-ball"></i> Sports</a>
+    <a href="bg3.html"><i class="fas fa-dragon"></i> BG3 Honor Mode</a>
+    <a href="#footer"><i class="fas fa-angle-double-down"></i> Jump to footer</a>
   </nav>
+
+
 
   <main>
     <!-- Pokémon Cards -->
@@ -75,6 +115,41 @@
         <img src="GIFS/snorlax-body-slam.gif" alt="Snorlax using Body Slam" class="move-gif" />
       </div>
     </div>
+<section aria-labelledby="poke-compare-heading" style="max-width:900px;margin:2rem auto;background:#111;padding:1rem;border-radius:10px;">
+  <h3 id="poke-compare-heading" style="text-align:center;color:#FFD700;margin-bottom:1rem;">
+    Pokémon Comparison
+  </h3>
+  <table style="width:100%;border-collapse:collapse;color:#fff;">
+    <thead>
+      <tr>
+        <th style="border-bottom:2px solid #FFD700;padding:.5rem;text-align:left;">Pokémon</th>
+        <th style="border-bottom:2px solid #FFD700;padding:.5rem;text-align:left;">Type</th>
+        <th style="border-bottom:2px solid #FFD700;padding:.5rem;text-align:left;">Signature Move</th>
+        <th style="border-bottom:2px solid #FFD700;padding:.5rem;text-align:left;">Why We Like It</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Charizard</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Fire/Flying</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Flamethrower</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Fierce, iconic, childhood fav</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Garchomp</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Dragon/Ground</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Earthquake</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Fast, powerful Land Shark</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Snorlax</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Normal</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Body Slam</td>
+        <td style="border-bottom:1px solid #333;padding:.5rem;">Big, sleepy, adorable</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
     <!-- Sound -->
     <audio id="pokeball-sound" preload="auto">

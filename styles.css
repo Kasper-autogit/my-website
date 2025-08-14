@@ -1,23 +1,47 @@
-/* ===================== GENERAL STYLES ===================== */
-body {
-  margin: 1rem 2rem;
-  background-color: rgb(0, 0, 0);
-  font-family: Arial, Helvetica, sans-serif;
-  color: #fb04a0;
+/* ===================== TYPOGRAPHY & THEME ===================== */
+/* Make sure in your <head> the Google Fonts <link> tags come BEFORE styles.css:
+   - Press Start 2P (headings)
+   - Roboto (body)
+*/
+
+:root {
+  --heading-font: 'Press Start 2P', cursive;
+  --body-font: 'Roboto', Arial, Helvetica, sans-serif; /* fallback chain */
+  --gold: #FFD700;
 }
 
+/* Enforce fonts early so they don't get overridden by any imported CSS */
+html, body {
+  font-family: var(--body-font) !important;
+}
+
+h1, h2, h3, h4,
+#main-header,
+.pokemon-heading {
+  font-family: var(--heading-font) !important;
+}
+
+/* ===================== BASE ELEMENTS ===================== */
+body {
+  margin: 0;
+  background-color: #000;        /* site-wide background */
+  color: var(--gold);             /* default text color */
+  line-height: 1.6;
+}
+
+/* paragraphs inherit body font; keep spacing/color */
 p {
   line-height: 2;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: rgb(245, 236, 3);
 }
 
 #main-header {
-  color: #4c04e9;
+  text-align: center;
   font-size: 2.5rem;
+  color: #8A2BE2;                /* was #4c04e9 earlier; unified to your later value */
+  margin: 20px 0;
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
@@ -40,34 +64,27 @@ a:hover {
 footer p {
   font-size: 0.8rem;
   color: #555555;
-
-
 }
 
+/* ===================== FULL-PAGE GIF BACKDROP ===================== */
 .page-bg {
-  position: fixed; /* stays in place when scrolling */
-  top: 0;
-  left: 0;
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: url("GIFS/bike-gif.gif") center center / cover no-repeat;
-  z-index: -1; /* keeps it behind everything else */
+  z-index: -1;
 }
-
 .page-bg::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4); /* 40% dark overlay */
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
 }
-
 
 /* ===================== ASCII DUEL MINIGAME ===================== */
 #ascii-art {
-  font-family: monospace;
+  font-family: monospace;        /* keeps the ASCII/game feel */
   font-size: 1.2rem;
   text-align: left;
   padding: 0.5rem 1rem;
@@ -84,7 +101,7 @@ footer p {
   flex-direction: column;
   align-items: center;
   white-space: nowrap;
-  font-family: monospace;
+  font-family: monospace;        /* intentional */
   font-size: 1.2em;
   color: #123c4d;
   background-color: #e9c46a;
@@ -102,14 +119,8 @@ footer p {
   width: 100%;
 }
 
-.duel-guy {
-  display: inline-block;
-  animation: jumpFall 5s ease-in-out infinite both;
-}
-
-#dueler2 {
-  animation-delay: 3s;
-}
+.duel-guy { display: inline-block; animation: jumpFall 5s ease-in-out infinite both; }
+#dueler2  { animation-delay: 3s; }
 
 #spin-symbols {
   display: inline-block;
@@ -127,16 +138,8 @@ footer p {
   text-align: center;
 }
 
-@keyframes jumpFall {
-  0%, 100% { transform: translateY(0); }
-  25%     { transform: translateY(-30px); }
-  50%     { transform: translateY(0); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
+@keyframes jumpFall { 0%,100%{transform:translateY(0)} 25%{transform:translateY(-30px)} 50%{transform:translateY(0)} }
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
 
 /* ===================== COIN FLIP GAME ===================== */
 #coin-flip-game button {
@@ -150,18 +153,10 @@ footer p {
   color: #264653;
   transition: background-color 0.3s, color 0.3s;
 }
+#coin-flip-game button:hover { background-color:#264653; color:#e9c46a; }
+#result { font-size: 1.2rem; color: #264653; }
 
-#coin-flip-game button:hover {
-  background-color: #264653;
-  color: #e9c46a;
-}
-
-#result {
-  font-size: 1.2rem;
-  color: #264653;
-}
-
-/* ===================== POKÉMON GRID LAYOUT ===================== */
+/* ===================== POKÉMON PAGE ===================== */
 .pokemon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -170,7 +165,6 @@ footer p {
   justify-items: center;
 }
 
-/* Pokémon Card */
 .pokemon-card {
   padding: 25px;
   border: 3px solid transparent;
@@ -182,21 +176,13 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 550px;  /* ensures even height */
+  min-height: 550px;
+  background: linear-gradient(to bottom, #e09703, #000000);
+  color: #0f0f0f;
 }
 
-.pokemon-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px gold;
-  animation: sparkle 1s infinite alternate;
-}
-
-.pokemon-card.selected {
-  position: relative;
-  border: 3px solid rgb(255, 196, 0);
-  background-color: gold;
-  overflow: visible;
-}
+.pokemon-card:hover { transform: scale(1.05); box-shadow: 0 0 20px gold; animation: sparkle 1s infinite alternate; }
+.pokemon-card.selected { position: relative; border: 3px solid rgb(255,196,0); background-color: gold; overflow: visible; }
 
 .pokemon-card img {
   width: 100%;
@@ -205,57 +191,34 @@ footer p {
   border: 3px solid white;
   border-radius: 10px;
   object-fit: contain;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin: 0 auto 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .pokemon-heading {
   text-align: center;
-  color: #FFD700; /* Gold */
-  font-family: 'Arial Black', sans-serif;
+  color: var(--gold);
 }
 
-
-
-
-/* Sparkles for selected cards */
 .pokemon-card.selected::before,
 .pokemon-card.selected::after {
   content: "";
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 6px; height: 6px;
   background: radial-gradient(circle, gold 60%, transparent 60%);
   border-radius: 50%;
   opacity: 0.8;
   animation: sparkleMove 2s linear infinite;
 }
+.pokemon-card.selected::before { top:10px; left:10px;  animation-delay: 0s; }
+.pokemon-card.selected::after  { bottom:10px; right:10px; animation-delay: 1s; }
 
-.pokemon-card.selected::before {
-  top: 10px;
-  left: 10px;
-  animation-delay: 0s;
-}
+@keyframes sparkle     { 0%{box-shadow:0 0 10px gold} 100%{box-shadow:0 0 20px orange} }
+@keyframes sparkleMove { 0%{transform:translate(0,0) scale(1);opacity:1}
+                         50%{transform:translate(15px,-15px) scale(1.5);opacity:.5}
+                        100%{transform:translate(0,0) scale(1);opacity:1} }
 
-.pokemon-card.selected::after {
-  bottom: 10px;
-  right: 10px;
-  animation-delay: 1s;
-}
-
-@keyframes sparkle {
-  0%   { box-shadow: 0 0 10px gold; }
-  100% { box-shadow: 0 0 20px orange; }
-}
-
-@keyframes sparkleMove {
-  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
-  50%  { transform: translate(15px, -15px) scale(1.5); opacity: 0.5; }
-  100% { transform: translate(0, 0) scale(1); opacity: 1; }
-}
-
-/* ===================== FLEXBOX - Misc Layouts ===================== */
+/* ===================== LAYOUT BITS ===================== */
 .columns {
   display: flex;
   flex-wrap: wrap;
@@ -267,115 +230,68 @@ footer p {
   border-radius: 10px;
 }
 
-.team-card img {
-  width: 200px;
-  height: auto;
-  display: block;
-  margin-top: 10px;
-}
+.team-card img { width: 200px; height: auto; display: block; margin-top: 10px; }
 
-/* ===================== FLEX CONTAINER #1: NAVBAR ===================== */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: center;
   gap: 20px;
-  background-color: #222;
+  background-color: #1f1f1f; /* unified */
   padding: 12px 0;
   font-weight: bold;
 }
-
 .navbar a {
   color: #fff;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
+.navbar a:hover { background-color: var(--gold); color: #000; border-radius: 4px; }
 
-.navbar a:hover {
-  background-color: #555;
-  color: #fff;
-}
-
-/* ===================== FLEX CONTAINER #2: FOOTER ===================== */
+/* FOOTER BAR */
 .footer-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #222;
+  background-color: #1f1f1f;
   color: white;
   font-size: 0.9rem;
 }
+.footer-bar a { color: #00ffff; text-decoration: none; font-weight: bold; }
+.footer-bar a:hover { text-decoration: underline; }
 
-.footer-bar a {
-  color: #00ffff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.footer-bar a:hover {
-  text-decoration: underline;
-}
-
-/* ===================== MEDIA QUERIES ===================== */
-
-/* Medium Screens */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-  }
-
-  .pokemon-card {
-    width: 90%;
-    margin: 10px auto;
-  }
-}
-
-/* Small Screens */
-@media (max-width: 550px) {
-  body {
-    font-size: 14px;
-  }
-
-  nav a {
-    font-size: 1rem;
-    display: block;
-    margin: 5px 0;
-    text-align: center;
-  }
-}
-
-
-.family-member {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-bottom: 2px solid #4c04e9;
-  background-color: #ffffff0f;
-  border-radius: 8px;
-}
-
-.family-member img {
-  margin-right: 10px;
-  border-radius: 8px;
-}
-
-
+/* ===================== HOME GRID ===================== */
 .home-sections {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 equal columns */
-  gap: 20px; /* space between grid items */
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;              /* more breathing room */
   padding: 20px;
+  align-items: start;     /* align tops of each column */
 }
-
-
 .home-sections section {
   background-color: #111111;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+.home-sections img {
+  width: 100%;
+  max-width: 320px;
+  height: 220px;          /* fixed box */
+  object-fit: contain;    /* no cropping; may letterbox */
+  background: #111;
+  border-radius: 10px;
+}
 
+/* Small stack */
+@media (max-width: 800px) {
+  .home-sections { grid-template-columns: 1fr; }
+}
+
+/* ===================== HOBBIES ===================== */
 .move-gif {
   width: 90%;
   max-width: 250px;
@@ -385,49 +301,8 @@ footer p {
   box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
 
-
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #000;
-  color: #FFD700;
-  line-height: 1.6;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  background-color: #1f1f1f;
-  padding: 10px 0;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px;
-  transition: background 0.3s ease;
-}
-
-.navbar a:hover {
-  background-color: #FFD700;
-  color: #000;
-  border-radius: 4px;
-}
-
-#main-header {
-  text-align: center;
-  font-size: 2rem;
-  color: #8A2BE2;
-  margin: 20px 0;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+/* ===================== SPORTS PAGE ===================== */
+.container { max-width: 1000px; margin: auto; padding: 20px; }
 
 .team-card {
   background-color: #111;
@@ -435,39 +310,61 @@ body {
   margin-bottom: 20px;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.team-card h2 { color: #FF1493; margin-bottom: 10px; }
+.team-card img { max-width: 150px; display: block; margin: 10px auto; border-radius: 4px; }
+.team-card p { color: var(--gold); font-size: 1rem; }
+
+/* ===================== MEDIA QUERIES ===================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;           /* centers stacked links */
+  }
+  .navbar a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .pokemon-card { width: 90%; margin: 10px auto; }
 }
 
-.team-card h2 {
-  color: #FF1493;
-  margin-bottom: 10px;
+@media (max-width: 550px) {
+  body { font-size: 14px; }
+  nav a {
+    font-size: 1rem;
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+  }
 }
 
-.team-card img {
-  max-width: 150px;
-  display: block;
-  margin: 10px auto;
-  border-radius: 4px;
+/* ===================== FAMILY SECTIONS ===================== */
+.family-member {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-bottom: 2px solid #4c04e9;
+  background-color: #ffffff0f;
+  border-radius: 8px;
+}
+.family-member img {
+  margin-right: 10px;
+  border-radius: 8px;
 }
 
-.team-card p {
-  color: #FFD700;
-  font-size: 1rem;
+
+#intro-text, 
+#intro-text strong, 
+#intro-text span {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
 }
 
-.footer-bar {
-  background-color: #1f1f1f;
-  color: #ccc;
-  text-align: center;
-  padding: 10px;
-}
+.navbar i { margin-right: 8px; }
+#main-header i { margin-right: 10px; font-size: 0.9em; }
 
-.footer-bar a {
-  color: #00CED1;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.footer-bar a:hover {
-  text-decoration: underline;
+.panel-content p,
+.panel-content ul li {
+  color: #fff; /* keep text white */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.85); /* dark glow */
 }
