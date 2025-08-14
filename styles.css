@@ -368,3 +368,178 @@ footer p {
   color: #fff; /* keep text white */
   text-shadow: 1px 1px 4px rgba(0,0,0,0.85); /* dark glow */
 }
+
+/* ===================== BG3 PAGE STYLES ===================== */
+body.bg3 .bg3-background {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url("picturesbg3/LgBG3background.avif") center center / cover no-repeat;
+  z-index: -1;
+  filter: brightness(0.35);
+}
+
+/* Hero */
+body.bg3 .hero {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.85)),
+    url("picturesbg3/diffrent-classes.webp") center/cover no-repeat;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  margin: 20px auto;
+  max-width: 1100px;
+}
+body.bg3 .hero h1 { color: #FFD700; margin-bottom: .75rem; font-family: 'Press Start 2P', cursive; }
+body.bg3 .hero p  { color: #f0f0f0; max-width: 800px; margin: 0 auto 1rem; }
+body.bg3 .cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .9rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(135deg,#FFD700,#ff9f1a);
+  color: #111;
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+  transition: transform .15s ease;
+}
+body.bg3 .cta:hover { transform: translateY(-2px); }
+
+/* Glow title */
+body.bg3 .glow-title {
+  font-size: 2.8rem;
+  color: #FFD700;
+  text-align: center;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px #FFD700,
+    0 0 10px #FFD700,
+    0 0 20px #FFA500,
+    0 0 30px #FF8C00;
+  animation: glowPulse 2s ease-in-out infinite;
+  margin-bottom: 10px;
+}
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #FFD700,
+      0 0 10px #FFD700,
+      0 0 20px #FFA500,
+      0 0 30px #FF8C00;
+  }
+  50% {
+    text-shadow:
+      0 0 10px #FFD700,
+      0 0 20px #FFD700,
+      0 0 40px #FFA500,
+      0 0 60px #FF8C00;
+  }
+}
+
+/* Uniform 2x2 panels */
+body.bg3 .panels-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+@media (max-width: 900px) {
+  body.bg3 .panels-grid { grid-template-columns: 1fr; }
+}
+
+body.bg3 .panel {
+  position: relative;
+  min-height: 320px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.6);
+  border: 1px solid rgba(255,215,0,.18);
+  background: #0d0d0d;
+  isolation: isolate;
+}
+body.bg3 .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg, none) center/cover no-repeat;
+  z-index: -2;
+}
+body.bg3 .panel::after  {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75));
+  z-index: -1;
+}
+body.bg3 .panel-content {
+  padding: 1.25rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+body.bg3 .panel h2 {
+  color: #FFD700;
+  margin: 0 0 .25rem;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+}
+/* BG3-only: make small text gold + readable */
+body.bg3 .panel-content p,
+body.bg3 .panel-content ul li {
+  color: #FFD700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Dark content boxes */
+body.bg3 .table-wrap,
+body.bg3 .gallery {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.4);
+  border: 1px solid rgba(255,215,0,.15);
+}
+body.bg3 .table-wrap h3,
+body.bg3 .gallery h3 { color: #FFD700; margin-top: .3rem; }
+
+/* Tables & gallery */
+body.bg3 table.honor {
+  width: 100%;
+  border-collapse: collapse;
+  color: #eee;
+}
+body.bg3 table.honor th,
+body.bg3 table.honor td {
+  padding: .7rem .6rem;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+body.bg3 table.honor th {
+  border-bottom: 2px solid #FFD700;
+  color: #FFD700;
+}
+body.bg3 .note { text-align: center; color: #aaa; margin-top: .75rem; font-size: .95rem; }
+
+body.bg3 .shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 12px;
+  margin-top: .75rem;
+}
+body.bg3 .shots img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
