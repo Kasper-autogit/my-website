@@ -1,0 +1,97 @@
+
+---
+
+## /kdc/index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kasper's Dungeon Crawler (KDC)</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Kasper's Dungeon Crawler (KDC)</h1>
+
+    <div class="grid">
+      <!-- LEFT: class select -->
+      <section class="panel">
+        <h2 style="margin-top:0">Choose Your Class</h2>
+        <div class="classes" id="classList"></div>
+        <div class="row" style="margin-top:10px">
+          <button id="startBtn" title="Start from boss 1 with your selected class.">Start Adventure</button>
+          <button id="resetBtn" title="Reload the page and reset everything.">Reset</button>
+        </div>
+
+        <h3 style="margin:12px 0 6px">Boss Roster</h3>
+        <ul id="bossRoster" class="roster" title="Tip: click any boss here to set the full-page background."></ul>
+      </section>
+
+      <!-- RIGHT: battle -->
+      <section class="panel battle">
+        <div class="footer">
+          <div class="tag">Encounter: <span class="boss-num" id="encounter">—</span></div>
+          <div class="tag">Difficulty: <span id="difficulty">Story</span></div>
+          <div class="tag">Level: <span id="levelTag">1</span></div>
+          <div class="tag" id="ngpTag" title="New Game Plus tier (each adds +30% boss stats)">NG+: 0</div>
+        </div>
+
+        <div class="combatants">
+          <div class="card" id="heroCard">
+            <div class="name"><span class="big" id="heroName">—</span><span id="heroStatus">Ready</span></div>
+            <div class="hero-art" id="heroArt" hidden></div>
+            <div>HP <div class="bar hp"><span id="heroHpBar" style="width:0%"></span></div></div>
+            <div>MP <div class="bar mp"><span id="heroMpBar" style="width:0%"></span></div></div>
+            <div class="stats" id="heroStats"></div>
+            <div class="row" style="margin-top:8px">
+              <button id="btnAttack" disabled title="Basic physical hit that can crit.">⚔️ Attack</button>
+              <button id="btnAbility" disabled title="Your class ability.">✨ Ability</button>
+              <button id="btnGuard" disabled title="Halve the next incoming hit.">🛡️ Guard</button>
+              <button id="btnPotion" disabled title="Drink to heal 25–50% of max HP and MP.">🧪 Potion</button>
+              <button id="btnHaste"  disabled title="Take two extra immediate turns.">⚡ Haste</button>
+              <button id="btnSlow"   disabled title="Cancel the enemy's next turn.">🧊 Slow Bomb</button>
+            </div>
+          </div>
+
+          <div class="card" id="bossCard">
+            <div class="name"><span class="big" id="bossName">—</span><span id="bossStatus">Waiting</span></div>
+            <div class="boss-art" id="bossArt" hidden></div>
+            <div>HP <div class="bar hp"><span id="bossHpBar" style="width:0%"></span></div></div>
+            <div class="stats" id="bossStats"></div>
+          </div>
+        </div>
+
+        <div class="log" id="log" aria-live="polite"></div>
+
+        <!-- Perk chooser -->
+        <div id="perkPanel" class="perk-panel" hidden>
+          <p class="perk-title">Choose your boon:</p>
+          <div id="perkChoices" class="perk-choices"></div>
+        </div>
+
+        <!-- hit flash overlay -->
+        <div id="hitFlash" class="hit-flash" aria-hidden="true"></div>
+
+        <!-- Victory overlay -->
+        <div id="victoryOverlay" class="overlay" hidden>
+          <div class="overlay-box">
+            <h2>🏆 Game Clear!</h2>
+            <p id="runSummary">You conquered KDC.</p>
+            <div class="overlay-actions">
+              <button id="btnContinueNG" title="Keep your progress and make bosses 30% stronger.">
+                Continue to NG+ <span id="ngNext">1</span>
+              </button>
+              <button id="btnRestart" title="Restart from the beginning.">Restart Run</button>
+            </div>
+            <div id="confetti" class="confetti"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/game.js" defer></script>
+</body>
+</html>
