@@ -1,17 +1,34 @@
-
----
-
-## /kdc/index.html
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kasper's Dungeon Crawler (KDC)</title>
-  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Site CSS (keep your global ../styles.css if needed) -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Font Awesome (optional, matches rest of site) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Favicon -->
+  <link rel="icon" href="GIFS/R.jpg" type="image/x-icon" />
 </head>
+
 <body>
+  <!-- Site nav (same markup used on your site; paths adjusted) -->
+  <nav class="navbar">
+    <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="../mod5.html"><i class="fas fa-gamepad"></i> Pokemon Page</a>
+    <a href="../sports.html"><i class="fas fa-football-ball"></i> Sports</a>
+    <a href="../bg3.html"><i class="fas fa-dragon"></i> BG3 Honor Mode</a>
+    <a class="active" href="./index.html">Play KDC</a>
+    <a href="../index.html#footer"><i class="fas fa-angle-double-down"></i> Jump to footer</a>
+  </nav>
+
   <div class="wrap">
     <h1>Kasper's Dungeon Crawler (KDC)</h1>
 
@@ -47,7 +64,11 @@
             <div class="stats" id="heroStats"></div>
             <div class="row" style="margin-top:8px">
               <button id="btnAttack" disabled title="Basic physical hit that can crit.">⚔️ Attack</button>
-              <button id="btnAbility" disabled title="Your class ability.">✨ Ability</button>
+
+              <!-- TWO ability buttons -->
+              <button id="btnAbility1" disabled title="Class Ability 1">✨ Ability 1</button>
+              <button id="btnAbility2" disabled title="Class Ability 2">✨ Ability 2</button>
+
               <button id="btnGuard" disabled title="Halve the next incoming hit.">🛡️ Guard</button>
               <button id="btnPotion" disabled title="Drink to heal 25–50% of max HP and MP.">🧪 Potion</button>
               <button id="btnHaste"  disabled title="Take two extra immediate turns.">⚡ Haste</button>
