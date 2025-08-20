@@ -1,91 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ryan's Favorite Sports Teams including MLB, NFL, and NBA picks with images and personal commentary." />
-  <meta name="author" content="Ryan Kasper" />
-  <title>Ryan's Favorite Sports Teams</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ryan's Favorite Sports Teams including MLB, NFL, and NBA picks with images and personal commentary."
+    />
+    <meta name="author" content="Ryan Kasper" />
+    <title>Ryan's Favorite Sports Teams</title>
 
-  <!-- Google Fonts (load BEFORE your stylesheet) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (load BEFORE your stylesheet) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Sitewide stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+    <!-- Sitewide stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
+    />
 
-  <!-- Favicon (keep just one) -->
-  <link rel="icon" href="GIFS/R.jpg" type="image/x-icon" />
-</head>
+    <!-- Favicon (keep just one) -->
+    <link rel="icon" href="GIFS/R.jpg" type="image/x-icon" />
+  </head>
 
-<body>
+  <body>
+    <a id="top"></a>
 
-	<a id="top"></a>
+    <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
 
- <!-- Flex Container #1: Horizontal navbar with evenly spaced links -->
-<nav class="navbar">
-  <a href="index.html"><i class="fas fa-home"></i> Home</a>
-  <a href="mod5.html"><i class="fas fa-gamepad"></i> Pokémon Page</a>
-  <a href="sports.html"><i class="fas fa-football-ball"></i> Sports</a>
-  <a href="kdc/kdc.html"><i class="fas fa-dungeon"></i> KDC Game</a>
-  <a href="bg3.html"><i class="fas fa-dragon"></i> BG3 Honor Mode</a>
-  <a href="#footer"><i class="fas fa-angle-double-down"></i> Jump to footer</a>
-</nav>
+    <nav class="navbar">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-home" aria-hidden="true"></i> Home
+      </a>
+      <a href="mod5.html" aria-label="Pokémon Page">
+        <i class="fas fa-gamepad" aria-hidden="true"></i> Pokémon Page
+      </a>
+      <a href="sports.html" aria-label="Sports">
+        <i class="fas fa-football-ball" aria-hidden="true"></i> Sports
+      </a>
+      <a href="kdc/kdc.html" aria-label="KDC Game">
+        <i class="fas fa-dungeon" aria-hidden="true"></i> KDC Game
+      </a>
+      <a href="bg3.html" aria-label="BG3 Honor Mode">
+        <i class="fas fa-dragon" aria-hidden="true"></i> BG3 Honor Mode
+      </a>
+    </nav>
 
+    <header>
+      <h1 id="main-header">Ryan's Favorite Sports Teams</h1>
+    </header>
 
+    <main class="container">
+      <section class="team-card padres">
+        <h2>San Diego Padres - MLB</h2>
+        <img src="Pics of Hobbies/padreslogo.png" alt="San Diego Padres Logo" />
+        <p>
+          The Padres are my hometown baseball team. I love watching them play at
+          Petco Park, and I'm hopeful for a World Series run soon!
+        </p>
+      </section>
 
-  <header>
-    <h1 id="main-header">Ryan's Favorite Sports Teams</h1>
-  </header>
+      <section class="team-card chargers">
+        <h2>Los Angeles Chargers - NFL</h2>
+        <img
+          src="Pics of Hobbies/chargerslogo.png"
+          alt="Los Angeles Chargers Logo"
+        />
+        <p>
+          Formerly the San Diego Chargers, I’ve supported this team since they
+          were local. Justin Herbert is one of the most exciting QBs to watch.
+        </p>
+      </section>
 
-  <main class="container">
-    <section class="team-card padres">
-      <h2>San Diego Padres - MLB</h2>
-      <img src="Pics of Hobbies/padreslogo.png" alt="San Diego Padres Logo" />
-      <p>The Padres are my hometown baseball team. I love watching them play at Petco Park, and I'm hopeful for a World Series run soon!</p>
-    </section>
+      <section class="team-card lakers">
+        <h2>Los Angeles Lakers - NBA</h2>
+        <img
+          src="Pics of Hobbies/lakerslgo.png"
+          alt="Los Angeles Lakers Logo"
+        />
+        <p>
+          The Lakers have a legendary legacy. From Magic Johnson to Kobe to
+          LeBron, they’ve always been a powerhouse in the NBA.
+        </p>
+      </section>
 
-    <section class="team-card chargers">
-      <h2>Los Angeles Chargers - NFL</h2>
-      <img src="Pics of Hobbies/chargerslogo.png" alt="Los Angeles Chargers Logo" />
-      <p>Formerly the San Diego Chargers, I’ve supported this team since they were local. Justin Herbert is one of the most exciting QBs to watch.</p>
-    </section>
+      <!-- 🎵 Embed Classic Chargers Theme Song -->
+      <section class="team-card">
+        <h2>San Diego Super Chargers Theme Song</h2>
+        <p style="text-align: center; font-weight: bold; color: #0047ab">
+          🔊 Want to hear the classic theme? Play and unmute for full effect!
+        </p>
+        <div
+          style="
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+          "
+        >
+          <iframe
+            src="https://www.youtube.com/embed/naB5_32y1UQ?autoplay=1&mute=1&rel=0"
+            title="San Diego Super Chargers Theme Song"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border: 0;
+            "
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </section>
+    </main>
 
-    <section class="team-card lakers">
-      <h2>Los Angeles Lakers - NBA</h2>
-      <img src="Pics of Hobbies/lakerslgo.png" alt="Los Angeles Lakers Logo" />
-      <p>The Lakers have a legendary legacy. From Magic Johnson to Kobe to LeBron, they’ve always been a powerhouse in the NBA.</p>
-    </section>
-
-    <!-- 🎵 Embed Classic Chargers Theme Song -->
-    <section class="team-card">
-      <h2>San Diego Super Chargers Theme Song</h2>
-      <p style="text-align:center; font-weight:bold; color:#0047AB;">
-        🔊 Want to hear the classic theme? Play and unmute for full effect!
-      </p>
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
-        <iframe
-          src="https://www.youtube.com/embed/naB5_32y1UQ?autoplay=1&mute=1&rel=0"
-          title="San Diego Super Chargers Theme Song"
-          style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-    
-  </main>
-
- <!-- Flex Container #2: Footer with Back to Top link -->
-<footer id="footer" class="footer-bar">
-  <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
-  <a href="#top">Back to Top ↑</a>
-</footer>
-
-</body>
+    <!-- Flex Container #2: Footer with Back to Top link -->
+    <footer id="footer" class="footer-bar">
+      <p>&copy; 2025 Ryan Kasper | All rights reserved</p>
+      <a href="#top">Back to Top ↑</a>
+    </footer>
+  </body>
 </html>
