@@ -26,6 +26,13 @@ body {
   padding-top: 56px; /* room for sticky nav if present */
 }
 
+/* Reset default page margins */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
 #classList.locked .class-card {
   opacity: 0.55;
   pointer-events: none;

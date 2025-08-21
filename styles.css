@@ -250,6 +250,15 @@ footer p {
 }
 .navbar a:hover { background-color: var(--gold); color: #000; border-radius: 4px; }
 
+/* Current-page highlight in the navbar */
+.navbar a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .2rem;
+  /* optional polish: */
+  text-decoration-thickness: 2px;
+}
+
+
 /* FOOTER BAR */
 .footer-bar {
   display: flex;
